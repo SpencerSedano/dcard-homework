@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import GithubLogin from "./GithubLogin";
 import { useSession } from "next-auth/react";
 
@@ -11,6 +12,7 @@ export default function Header() {
       <div className="flex flex-col items-center justify-center h-screen -mt-16">
         <h1>Welcome, </h1>
         <span className="font-bold text-2xl">{session.user.name}</span>
+        <Link href="/blog">Go to blog</Link>
       </div>
     );
   }

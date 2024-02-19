@@ -3,10 +3,15 @@
 import { useEffect, useState } from "react";
 import { Octokit } from "octokit";
 import { useSession } from "next-auth/react";
+import { useInView } from "react-intersection-observer";
+
+const issuesPerPage = 2;
 
 export default function Blog() {
   const [data, setData] = useState(null);
   const { data: session, status } = useSession();
+  const [issuesToShow, setIssuesToShow] = useState(issuesPerPage);
+  const [ref, inView] = useInView();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -15,7 +20,7 @@ export default function Blog() {
       });
 
       const response = await octokit.request(
-        "GET /repos/SpencerSedano/dcard-homework/issues/1",
+        "GET /repos/SpencerSedano/dcard-homework/issues",
         {
           owner: "Spencer",
           repo: "dcard",
@@ -29,13 +34,31 @@ export default function Blog() {
     fetchData();
   }, []);
 
-  if (status == "authenticated") {
+  useEffect(() => {
+    if (inView) {
+      setIssuesToShow((prev) => prev + issuesPerPage);
+    }
+  }, [inView]);
+
+  if (status === "authenticated") {
     return (
       <div>
         {data && (
           <div>
-            <p>{data.title}</p>
-            <p>{data.body}</p>
+            {data.slice(0, issuesToShow).map(
+              (issue, i) =>
+                i.state !== "closed" && (
+                  <div key={i}>
+                    <p>{issue.title}</p>
+                    <p>{issue.body}</p>
+                  </div>
+                )
+            )}
+            {data.length > issuesToShow && (
+              <div ref={ref}>
+                {/* Placeholder element to trigger loading when it enters the viewport */}
+              </div>
+            )}
           </div>
         )}
       </div>

@@ -5,7 +5,7 @@ import { Octokit } from "octokit";
 import { useSession } from "next-auth/react";
 import { useInView } from "react-intersection-observer";
 
-const issuesPerPage = 2;
+const issuesPerPage = 10;
 
 export default function Blog() {
   const [data, setData] = useState(null);
@@ -62,7 +62,7 @@ export default function Blog() {
             )}
             {data.length > issuesToShow && (
               <div ref={ref}>
-                {/* Placeholder element to trigger loading when it enters the viewport */}
+                {/* Need to build a Loading Feature to let the user know what is happening */}
               </div>
             )}
           </div>

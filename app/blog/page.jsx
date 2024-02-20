@@ -34,6 +34,12 @@ export default function Blog() {
     fetchData();
   }, []);
 
+  /*   useEffect(() => {
+    const octokit = new Octokit({
+      auth: process.env.ONETIME_TOKEN
+    })
+  }, []) */
+
   useEffect(() => {
     if (inView) {
       setIssuesToShow((prev) => prev + issuesPerPage);
@@ -48,9 +54,9 @@ export default function Blog() {
             {data.slice(0, issuesToShow).map(
               (issue, i) =>
                 i.state !== "closed" && (
-                  <div key={i}>
-                    <p>{issue.title}</p>
-                    <p>{issue.body}</p>
+                  <div key={i} className="border-4 p-8 m-8">
+                    <h1 className="text-4xl">{issue.title}</h1>
+                    <p className="text-base">{issue.body}</p>
                   </div>
                 )
             )}

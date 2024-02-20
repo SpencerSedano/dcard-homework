@@ -10,6 +10,7 @@ export default function ProfileIcon() {
     return (
       <div className="flex gap-5">
         <Image
+          alt="Profile Picture"
           src={session.user.image}
           width={40}
           height={40}

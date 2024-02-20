@@ -1,0 +1,6 @@
+STEPS
+1. Fetch Posts from API
+2. 
+3.
+4.
+5.

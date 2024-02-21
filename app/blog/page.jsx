@@ -34,11 +34,18 @@ export default function Blog() {
     fetchData();
   }, []);
 
-  /*   useEffect(() => {
-    const octokit = new Octokit({
-      auth: process.env.ONETIME_TOKEN
-    })
-  }, []) */
+  useEffect(() => {
+    const updateIssue = async () => {
+      const octokit = new Octokit({
+        auth: process.env.ONETIME_TOKEN,
+      });
+
+      await octokit.request(
+        `PATCH /repos/SpencerSedano/dcard-homework/issues/${issue_number}`,
+        {}
+      );
+    };
+  }, []);
 
   useEffect(() => {
     if (inView) {
@@ -57,6 +64,8 @@ export default function Blog() {
                   <div key={i} className="border-4 p-8 m-8">
                     <h1 className="text-4xl">{issue.title}</h1>
                     <p className="text-base">{issue.body}</p>
+                    <p>The issue number is: {issue.number}</p>
+                    <button className="bg-black text-white">UPDATE</button>
                   </div>
                 )
             )}

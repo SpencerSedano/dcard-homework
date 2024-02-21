@@ -27,12 +27,36 @@ export default function Blog() {
     fetchData();
   }, []);
 
+  // Trying to POST a new issue but it gives me 404, will look into it later
+  const createNewIssue = async () => {
+    const octokit = new Octokit({
+      auth: process.env.ONETIME_TOKEN,
+    });
+
+    try {
+      const responseIssue = await octokit.request(
+        "POST /repos/SpencerSedano/dcard-homework/issues",
+        {
+          owner: "SpencerSedano",
+          repo: "dcard-homework",
+          title: "Found a bug",
+          body: "I'm having a problem with this.",
+        }
+      );
+
+      console.log(responseIssue);
+    } catch (error) {
+      console.error("Error creating new issue:", error);
+    }
+  };
+
   return (
     <div>
       {data && (
         <div>
           <p>{data.title}</p>
           <p>{data.body}</p>
+          <button onClick={createNewIssue}>Create New Issue</button>
         </div>
       )}
     </div>

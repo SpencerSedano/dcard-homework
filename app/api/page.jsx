@@ -13,10 +13,13 @@ export default function Blog() {
       });
 
       const response = await octokit.request(
-        "GET /repos/SpencerSedano/dcard-homework/issues/1",
+        "GET /repos/{owner}/{repo}/issues/1",
         {
-          owner: "Spencer",
-          repo: "dcard",
+          owner: "SpencerSedano",
+          repo: "dcard-homework",
+          headers: {
+            "X-GitHub-Api-Version": "2022-11-28",
+          },
         }
       );
 
@@ -27,26 +30,25 @@ export default function Blog() {
     fetchData();
   }, []);
 
-  // Trying to POST a new issue but it gives me 404, will look into it later
   const createNewIssue = async () => {
     const octokit = new Octokit({
+      //works with ONETIME_TOKEN
       auth: process.env.ONETIME_TOKEN,
     });
-
     try {
       const responseIssue = await octokit.request(
-        "POST /repos/SpencerSedano/dcard-homework/issues",
+        "POST /repos/{owner}/{repo}/issues",
         {
           owner: "SpencerSedano",
           repo: "dcard-homework",
-          title: "Found a bug",
-          body: "I'm having a problem with this.",
+          title: "Make it work 3",
+          body: "PLEASE WORK 3",
         }
       );
 
       console.log(responseIssue);
     } catch (error) {
-      console.error("Error creating new issue:", error);
+      console.error("Error creating issue:", error.message);
     }
   };
 
@@ -56,9 +58,10 @@ export default function Blog() {
         <div>
           <p>{data.title}</p>
           <p>{data.body}</p>
-          <button onClick={createNewIssue}>Create New Issue</button>
         </div>
       )}
+      {/* When I call using createNewIssue() works but it sends too many POST requests */}
+      <button onClick={createNewIssue}>Create New Issue</button>
     </div>
   );
 }

@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ["latin"] });
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={inter.className} suppressHydrationWarning={true}>
         <NextAuthProvider>
           <div className="max-w-5xl mx-auto px-8">
             <Navbar />

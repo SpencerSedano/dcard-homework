@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Octokit } from "octokit";
 import { useSession } from "next-auth/react";
 import { useInView } from "react-intersection-observer";
+import PostBlog from "../post/page";
 
 const issuesPerPage = 2;
 
@@ -12,6 +13,12 @@ export default function Blog() {
   const { data: session, status } = useSession();
   const [issuesToShow, setIssuesToShow] = useState(issuesPerPage);
   const [ref, inView] = useInView();
+
+  const postData = async () => {
+    const response = await fetch("http://localhost:3000/post");
+    const data = await response.json();
+    console.log(data);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -65,7 +72,9 @@ export default function Blog() {
                     <h1 className="text-4xl">{issue.title}</h1>
                     <p className="text-base">{issue.body}</p>
                     <p>The issue number is: {issue.number}</p>
-                    <button className="bg-black text-white">UPDATE</button>
+                    <button className="bg-black text-white" onClick={postData}>
+                      NEW ISSUE
+                    </button>
                   </div>
                 )
             )}

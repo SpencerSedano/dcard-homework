@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@octokit/core": "^5.1.0",
+    "dotenv": "^16.4.5",
     "next": "14.1.0",
     "next-auth": "^4.24.5",
     "octokit": "^3.1.2",

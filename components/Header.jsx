@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import GithubLogin from "./GithubLogin";
 import { useSession } from "next-auth/react";
@@ -9,18 +10,41 @@ export default function Header() {
 
   if (status === "authenticated") {
     return (
-      <div className="flex flex-col items-center justify-center h-screen -mt-16">
-        <h1>Welcome, </h1>
-        <span className="font-bold text-2xl">{session.user.name}</span>
-        <Link href="/blog">Go to blog</Link>
-      </div>
+      <>
+        <div className="flex items-center justify-center ">
+          <Image
+            src="/daniel.png"
+            width={250}
+            height={100}
+            alt="Daniel Profile"
+            priority
+          />
+        </div>
+
+        <div className="flex flex-col items-center justify-center ">
+          <h1>Welcome to Daniel's blog, </h1>
+          <span className="font-bold text-3xl">{session.user.name}</span>
+          <br />
+          <Link
+            href="/blog"
+            className="hover:bg-sky-700 hover:text-white text-2xl"
+          >
+            Go to blog
+          </Link>
+        </div>
+      </>
     );
   }
 
   return (
     <div className="flex flex-col items-center justify-center h-screen -mt-16">
-      <h1>Login to get started.</h1>
+      <h1 className="text-2xl">Sign in to browse, update, and browse.</h1>
+
       <GithubLogin />
+      <br />
+      <Link href="/blog" className="hover:bg-sky-700 hover:text-white text-2xl">
+        Go to blog
+      </Link>
     </div>
   );
 }

@@ -54,9 +54,6 @@ export default function Blog() {
       });
 
       setData(issuesWithComments);
-
-      console.log(issuesResponse);
-      console.log(issuesWithComments);
     };
 
     fetchData();
@@ -68,8 +65,17 @@ export default function Blog() {
     }
   }, [inView]);
 
+  const formAddIssue = (
+    <form action={addIssue}>
+      <input type="text" name="titleContent" placeholder="Write your title" />
+      <input type="text" name="bodyContent" placeholder="Write your body" />
+      <button>Add New Issue</button>
+    </form>
+  );
+
   return (
     <div>
+      {status === "authenticated" && formAddIssue}
       {data && (
         <div>
           {data.slice(0, issuesToShow).map(
@@ -89,24 +95,12 @@ export default function Blog() {
                   <div>
                     {session?.user?.name === issue.user.login && (
                       <div>
-                        <form action={addIssue}>
-                          <input
-                            type="text"
-                            name="titleContent"
-                            placeholder="Write your title"
-                          />
-                          <input
-                            type="text"
-                            name="bodyContent"
-                            placeholder="Write your body"
-                          />
-                          <button>Add New Issue</button>
-                        </form>
                         <form action={updateIssue}>
                           <input
                             type="text"
                             name="issueContent"
-                            placeholder="Number of Issue"
+                            defaultValue={issue.number}
+                            readOnly
                           />
                           <input
                             type="text"

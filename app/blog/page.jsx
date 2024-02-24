@@ -4,7 +4,9 @@ import { useEffect, useState } from "react";
 import { Octokit } from "octokit";
 import { useSession } from "next-auth/react";
 import { useInView } from "react-intersection-observer";
-import PostBlog from "../post/page";
+
+import { addIssue } from "@/actions/add-issue";
+import { updateIssue } from "@/actions/update-issue";
 
 const issuesPerPage = 2;
 
@@ -14,11 +16,12 @@ export default function Blog() {
   const [issuesToShow, setIssuesToShow] = useState(issuesPerPage);
   const [ref, inView] = useInView();
 
-  const postData = async () => {
+  /*   const [dataComment, setDataComment] = useState(null);
+   */
+  /*   const postData = async () => {
     const response = await fetch("http://localhost:3000/post");
-    const data = await response.json();
-    console.log(data);
-  };
+    console.log(response);
+  }; */
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,7 +29,7 @@ export default function Blog() {
         auth: process.env.ONETIME_TOKEN,
       });
 
-      const response = await octokit.request(
+      const issuesResponse = await octokit.request(
         "GET /repos/SpencerSedano/dcard-homework/issues",
         {
           owner: "Spencer",
@@ -34,24 +37,27 @@ export default function Blog() {
         }
       );
 
-      setData(response.data);
-      console.log(response);
+      const commentsResponse = await octokit.request(
+        "GET /repos/{owner}/{repo}/issues/comments",
+        {
+          owner: "SpencerSedano",
+          repo: "dcard-homework",
+        }
+      );
+
+      const issuesWithComments = issuesResponse.data.map((issue) => {
+        const issueComments = commentsResponse.data.filter(
+          (comment) => comment.issue_url === issue.url
+        );
+        return { ...issue, comments: issueComments };
+      });
+
+      setData(issuesWithComments);
+
+      console.log(issuesWithComments);
     };
 
     fetchData();
-  }, []);
-
-  useEffect(() => {
-    const updateIssue = async () => {
-      const octokit = new Octokit({
-        auth: process.env.ONETIME_TOKEN,
-      });
-
-      await octokit.request(
-        `PATCH /repos/SpencerSedano/dcard-homework/issues/${issue_number}`,
-        {}
-      );
-    };
   }, []);
 
   useEffect(() => {
@@ -72,9 +78,44 @@ export default function Blog() {
                     <h1 className="text-4xl">{issue.title}</h1>
                     <p className="text-base">{issue.body}</p>
                     <p>The issue number is: {issue.number}</p>
-                    <button className="bg-black text-white" onClick={postData}>
-                      NEW ISSUE
-                    </button>
+                    <div>
+                      {issue.comments.map((comment) => (
+                        <div key={comment.id}>
+                          <h1>{comment.body}</h1>
+                        </div>
+                      ))}
+                    </div>
+                    <form action={addIssue}>
+                      <input
+                        type="text"
+                        name="titleContent"
+                        placeholder="Write your title"
+                      />
+                      <input
+                        type="text"
+                        name="bodyContent"
+                        placeholder="Write your body"
+                      />
+                      <button>Add New Issue</button>
+                    </form>
+                    <form action={updateIssue}>
+                      <input
+                        type="text"
+                        name="issueContent"
+                        placeholder="Number of Issue"
+                      />
+                      <input
+                        type="text"
+                        name="titleContent"
+                        placeholder="Write your title"
+                      />
+                      <input
+                        type="text"
+                        name="bodyContent"
+                        placeholder="Write your body"
+                      />
+                      <button>Update New Issue</button>
+                    </form>
                   </div>
                 )
             )}

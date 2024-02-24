@@ -1,0 +1,20 @@
+git pull (to be up to date)
+git checkout -b my_feature (create a new branch and go to the branch)
+git add . (add all files)
+git commit -m (commiting changes)
+
+// To stay up-to-date with my co-workers changes
+git checkout master 
+git pull
+
+// Anchor feature  
+git checkout my_feature
+git rebase master
+
+// To Finish
+git checkout master
+git rebase my_feature
+
+
+// End
+You can push it and deploy it.

@@ -17,4 +17,4 @@ git rebase my_feature
 
 
 // End
-You can push it and deploy it.
+You can push it and deploy it

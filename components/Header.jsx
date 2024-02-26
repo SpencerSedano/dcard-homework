@@ -38,7 +38,7 @@ export default function Header() {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen -mt-16">
-      <h1 className="text-2xl">Sign in to browse, update, and browse.</h1>
+      <h1 className="text-2xl">Sign in to browse, create, and update.</h1>
 
       <GithubLogin />
       <br />

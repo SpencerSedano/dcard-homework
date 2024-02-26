@@ -5,8 +5,10 @@ import { Octokit } from "octokit";
 import { useSession } from "next-auth/react";
 import { useInView } from "react-intersection-observer";
 
-import { addIssue } from "@/actions/add-issue";
-import { updateIssue } from "@/actions/update-issue";
+/* import { addIssue } from "@/actions/add-issue"; */
+/* import { updateIssue } from "@/actions/update-issue"; */
+
+import ModalCreate from "@/components/ModalCreate";
 
 const issuesPerPage = 10;
 
@@ -16,6 +18,41 @@ export default function Blog() {
   const [issuesToShow, setIssuesToShow] = useState(issuesPerPage);
   const [ref, inView] = useInView();
 
+  // Form Validation :)
+  /* const [newIssueTitle, setNewIssueTitle] = useState("");
+  const [newIssueBody, setNewIssueBody] = useState("");
+
+  const [errors, setErrors] = useState({});
+  const [isFormValid, setIsFormValid] = useState(false);
+
+  useEffect(() => {
+    validateForm();
+  }, [newIssueTitle, newIssueBody]);
+
+  const validateForm = () => {
+    let errors = {};
+
+    if (!newIssueTitle) {
+      errors.newIssueTitle = "Title is required";
+    }
+
+    if (!newIssueBody) {
+      errors.newIssueBody = "Body is required";
+    } else if (newIssueBody.length < 30) {
+      errors.newIssueBody = "Body must be at least 30 characters";
+    }
+
+    setErrors(errors);
+    setIsFormValid(Object.keys(errors).length === 0);
+  };
+  const handleSubmit = () => {
+    if (isFormValid) {
+      console.log("Form submitted successfully!");
+    } else {
+      console.log("Form has errors. Please correct them.");
+    }
+  };
+ */
   /*   const [dataComment, setDataComment] = useState(null);
    */
   /*   const postData = async () => {
@@ -65,17 +102,35 @@ export default function Blog() {
     }
   }, [inView]);
 
-  const formAddIssue = (
+  /* const formAddIssue = (
     <form action={addIssue}>
-      <input type="text" name="titleContent" placeholder="Write your title" />
-      <input type="text" name="bodyContent" placeholder="Write your body" />
-      <button>Add New Issue</button>
+      <input
+        type="text"
+        name="titleContent"
+        placeholder="Write your title"
+        value={newIssueTitle}
+        onChange={(e) => setNewIssueTitle(e.target.value)}
+      />
+      {errors.newIssueTitle && <p>{errors.newIssueTitle}</p>}
+      <textarea
+        type="text"
+        name="bodyContent"
+        placeholder="Write your body"
+        value={newIssueBody}
+        onChange={(e) => setNewIssueBody(e.target.value)}
+      />
+      {errors.newIssueBody && <p>{errors.newIssueBody}</p>}
+      <button onClick={handleSubmit} disabled={!isFormValid}>
+        Add New Issue
+      </button>
     </form>
-  );
+  ); */
 
   return (
     <div>
-      {status === "authenticated" && formAddIssue}
+      <ModalCreate />
+      {/*       {status === "authenticated" && formAddIssue}
+       */}
       {data && (
         <div>
           {data.slice(0, issuesToShow).map(
@@ -92,7 +147,7 @@ export default function Blog() {
                       </div>
                     ))}
                   </div>
-                  <div>
+                  {/*  <div>
                     {session?.user?.name === issue.user.login && (
                       <div>
                         <form action={updateIssue}>
@@ -116,7 +171,7 @@ export default function Blog() {
                         </form>
                       </div>
                     )}
-                  </div>
+                  </div> */}
                 </div>
               )
           )}

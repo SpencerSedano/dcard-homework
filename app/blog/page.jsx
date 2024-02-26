@@ -9,6 +9,7 @@ import { useInView } from "react-intersection-observer";
 /* import { updateIssue } from "@/actions/update-issue"; */
 
 import ModalCreate from "@/components/ModalCreate";
+import ModalUpdate from "@/components/ModalUpdate";
 
 const issuesPerPage = 10;
 
@@ -128,7 +129,7 @@ export default function Blog() {
 
   return (
     <div>
-      <ModalCreate />
+      {status === "authenticated" && <ModalCreate />}
       {/*       {status === "authenticated" && formAddIssue}
        */}
       {data && (
@@ -147,6 +148,9 @@ export default function Blog() {
                       </div>
                     ))}
                   </div>
+                  {session?.user?.name === issue.user.login && (
+                    <ModalUpdate issue={issue.number} />
+                  )}
                   {/*  <div>
                     {session?.user?.name === issue.user.login && (
                       <div>

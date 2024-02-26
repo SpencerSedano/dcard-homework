@@ -63,9 +63,15 @@ export default function ModalCreate() {
         onChange={(e) => setNewIssueBody(e.target.value)}
       />
       {errors.newIssueBody && <p>{errors.newIssueBody}</p>}
-      <button onClick={handleSubmit} disabled={!isFormValid}>
-        Create
-      </button>
+      <div className="flex justify-items items-center">
+        <button
+          onClick={handleSubmit}
+          disabled={!isFormValid}
+          className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded "
+        >
+          Create
+        </button>
+      </div>
     </form>
   );
   return (
@@ -82,8 +88,8 @@ export default function ModalCreate() {
         <>
           <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
             <div className="relative w-auto my-6 mx-auto max-w-3xl">
-              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
-                <div className="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
+              <div className="border-0 rounded-lg shadow-lg relative w-full bg-white outline-none focus:outline-none">
+                <div className="p-5 border-b border-solid border-blueGray-200 rounded-t">
                   {formAddIssue}
                 </div>
                 <button
@@ -98,9 +104,7 @@ export default function ModalCreate() {
           </div>
           <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
         </>
-      ) : (
-        <h1>It did not work</h1>
-      )}
+      ) : null}
     </>
   );
 }

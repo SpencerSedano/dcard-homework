@@ -20,17 +20,8 @@ You can start editing the page by modifying `app/page.js`. The page auto-updates
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+## Project Explanation
 
-To learn more about Next.js, take a look at the following resources:
+Project was built using Next.js without Typescript. In my opinion, it would have been better to use Typescript but I wasn't sure to use it or not. 
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Project uses Next.auth to authenticate users and give certain permissions such as `create a new issue` or `update an issue`. The data comes from Github Issues through Github API. I created my TOKEN to connect to the Github API and I used [Octokit](https://docs.github.com/en/rest/issues/issues?apiVersion=2022-11-2) as the Github documentation suggests.

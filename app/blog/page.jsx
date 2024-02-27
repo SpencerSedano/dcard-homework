@@ -140,7 +140,10 @@ export default function Blog() {
                 <div key={i} className="border-4 p-8 m-8">
                   <h1 className="text-4xl">{issue.title}</h1>
                   <p className="text-base">{issue.body}</p>
-                  <p>The issue number is: {issue.number}</p>
+                  <p>
+                    The issue number is:{" "}
+                    <span className="font-bold"> {issue.number} </span>
+                  </p>
                   <div>
                     {issue.comments.map((comment) => (
                       <div key={comment.id}>

@@ -10,6 +10,7 @@ import { useInView } from "react-intersection-observer";
 
 import ModalCreate from "@/components/ModalCreate";
 import ModalUpdate from "@/components/ModalUpdate";
+import DeleteButton from "@/components/DeleteButton";
 
 const issuesPerPage = 10;
 
@@ -154,6 +155,10 @@ export default function Blog() {
                   {session?.user?.name === issue.user.login && (
                     <ModalUpdate issue={issue.number} />
                   )}
+                  {session?.user?.name === issue.user.login && (
+                    <DeleteButton issue={issue.number} />
+                  )}
+
                   {/*  <div>
                     {session?.user?.name === issue.user.login && (
                       <div>

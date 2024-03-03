@@ -1,0 +1,17 @@
+HW Key Points
+
+1. The user who logged in can 'browse', 'create', 'update'. (FINISHED)
+2. The user who is NOT logged in can 'browse'. (FINISHED)
+
+3. Connect Github Oauth and Github API (FINISHED)
+
+4. A Github Issue is a post (POST) (FINISHED)
+5. A Closed Issue is not shown (DELETED) 
+
+
+
+
+
+
+
+#. Update README

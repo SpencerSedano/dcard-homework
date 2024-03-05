@@ -1,4 +1,4 @@
-This is a React.js project using Next.js.
+This is a React.js project using Next.js framework.
 
 <h1>Project Information</h1>
 丹尼爾是⼀名⼯程師，他過往學⼀些⼈使⽤ GitHub Issue 來充當⾃⼰的部落格。他已使⽤ GitHub Issue 寫部落格⼀段時間，但發
@@ -7,16 +7,16 @@ React.js 開發⼀個網⾴，讓搜尋引擎更容易尋找到他在 GitHub Iss
 你能幫助他完成這個專案。
 
 <h1>Fundamental Requirements</h1> 
-1. Use React.js and Next.js
-2. Use Git and Github
-3. Explain the project through a README.md
+1. Use React.js and Next.js</br>
+2. Use Git and Github</br>
+3. Explain the project through a README.md</br>
 
 <h2>To Add Points</h2>
-<s>1. Use Typescript</s>\n
-2. Use Next.js + App Router
-3. Check the score on Web Vitals
-4. Implement Error Handling
-5. Deploy it
+<s>1. Use Typescript</s></br>
+2. Use Next.js + App Router</br>
+3. Check the score on Web Vitals</br>
+4. Implement Error Handling</br>
+5. Deploy it</br>
 
 #Project Structure
 

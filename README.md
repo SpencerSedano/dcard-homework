@@ -12,7 +12,7 @@ React.js 開發⼀個網⾴，讓搜尋引擎更容易尋找到他在 GitHub Iss
 3. Explain the project through a README.md
 
 <h2>To Add Points</h2>
-<s>1. Use Typescript</s>
+<s>1. Use Typescript</s>\n
 2. Use Next.js + App Router
 3. Check the score on Web Vitals
 4. Implement Error Handling

@@ -19,7 +19,7 @@ React.js 開發⼀個網⾴，讓搜尋引擎更容易尋找到他在 GitHub Iss
 5. Deploy it</br>
 
 <h1>Project Story</h1>
-I wrote React.js many years ago. I had never wrote any Next.js until the day I decided to start this project to send my application for Frontend Summer Internship at Dcard.
+I had never wrote any line of Next.js until the day I decided to start this project to send my application for Frontend Summer Internship at Dcard.
 The Dcard assignment, I took it as a challenge and it really was a challenge. I looked into the Next.js documentation and started my project. 
 After finishing the project, I hope that the Dcard team can review my project and get an interview. 
 Thank you!

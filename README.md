@@ -20,37 +20,14 @@ React.js 開發⼀個網⾴，讓搜尋引擎更容易尋找到他在 GitHub Iss
 
 <h1>Project Story</h1>
 I wrote React.js many years ago. I had never wrote any Next.js until the day I decided to start this project to send my application for Frontend Summer Internship at Dcard.
-The Dcard assignment, I took it as a challenge and it really was a challenge. I looked Next.js documentation and started my project. 
+The Dcard assignment, I took it as a challenge and it really was a challenge. I looked into the Next.js documentation and started my project. 
 After finishing the project, I hope that the Dcard team can review my project and get an interview. 
 Thank you!
 
+<h1>Project Structure</h1>
+- For the authenticator, NextAuth.js was used</br>
+- For the Github API, Octokit was used.</br>
+- For the infinite scroll, react-intersection-observer was used</br>
+- For the styles, Tailwind CSS was used</br> 
 
-#Project Structure
 
-
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Project Explanation
-
-Project was built using Next.js without Typescript. In my opinion, it would have been better to use Typescript but I wasn't sure to use it or not. 
-
-Project uses Next.auth to authenticate users and give certain permissions such as `create a new issue` or `update an issue`. The data comes from Github Issues through Github API. I created my TOKEN to connect to the Github API and I used [Octokit](https://docs.github.com/en/rest/issues/issues?apiVersion=2022-11-2) as the Github documentation suggests.

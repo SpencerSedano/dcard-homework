@@ -22,7 +22,7 @@ export default function Header() {
         </div>
 
         <div className="flex flex-col items-center justify-center ">
-          <h1>Welcome to Daniel's blog, </h1>
+          <h1>{`Welcome to Daniel's blog,`}</h1>
           <span className="font-bold text-3xl">{session.user.name}</span>
           <br />
           <Link
@@ -38,12 +38,12 @@ export default function Header() {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen -mt-16">
-      <h1 className="text-2xl">Sign in to browse, create, and update.</h1>
+      <h1 className="text-2xl">{`Sign in to browse, create, and update.`}</h1>
 
       <GithubLogin />
       <br />
       <Link href="/blog" className="hover:bg-sky-700 hover:text-white text-2xl">
-        Go to blog
+        {`Go to blog`}
       </Link>
     </div>
   );

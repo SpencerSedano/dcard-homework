@@ -1,4 +1,26 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a React.js project using Next.js.
+
+#Project Information
+丹尼爾是⼀名⼯程師，他過往學⼀些⼈使⽤ GitHub Issue 來充當⾃⼰的部落格。他已使⽤ GitHub Issue 寫部落格⼀段時間，但發
+現這樣做有些明顯的缺點，不只是顯⽰上⽐較侷限，⽂章也⽐較不容易被搜尋引擎排到前⾯。因此他決定串接 GitHub API 並使⽤
+React.js 開發⼀個網⾴，讓搜尋引擎更容易尋找到他在 GitHub Issue 上寫出的⽂章，並調整成⾃⼰喜歡的樣式，希望熟悉前端的
+你能幫助他完成這個專案。
+
+#Fundamental Requirements 
+1. Use React.js and Next.js
+2. Use Git and Github
+3. Explain the project through a README.md
+
+##To Add Points
+<s>1. Use Typescript</s>
+2. Use Next.js + App Router
+3. Check the score on Web Vitals
+4. Implement Error Handling
+5. Deploy it
+
+#Project Structure
+
+
 
 ## Getting Started
 

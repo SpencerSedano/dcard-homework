@@ -6,12 +6,12 @@ This is a React.js project using Next.js.
 React.js 開發⼀個網⾴，讓搜尋引擎更容易尋找到他在 GitHub Issue 上寫出的⽂章，並調整成⾃⼰喜歡的樣式，希望熟悉前端的
 你能幫助他完成這個專案。
 
-#Fundamental Requirements 
+<h1>Fundamental Requirements</h1> 
 1. Use React.js and Next.js
 2. Use Git and Github
 3. Explain the project through a README.md
 
-##To Add Points
+<h2>To Add Points</h2>
 <s>1. Use Typescript</s>
 2. Use Next.js + App Router
 3. Check the score on Web Vitals

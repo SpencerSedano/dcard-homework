@@ -1,6 +1,6 @@
 This is a React.js project using Next.js.
 
-#Project Information
+<h1>Project Information</h1>
 丹尼爾是⼀名⼯程師，他過往學⼀些⼈使⽤ GitHub Issue 來充當⾃⼰的部落格。他已使⽤ GitHub Issue 寫部落格⼀段時間，但發
 現這樣做有些明顯的缺點，不只是顯⽰上⽐較侷限，⽂章也⽐較不容易被搜尋引擎排到前⾯。因此他決定串接 GitHub API 並使⽤
 React.js 開發⼀個網⾴，讓搜尋引擎更容易尋找到他在 GitHub Issue 上寫出的⽂章，並調整成⾃⼰喜歡的樣式，希望熟悉前端的

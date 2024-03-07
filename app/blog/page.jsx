@@ -130,7 +130,7 @@ export default function Blog() {
 
   return (
     <div>
-      {status === "authenticated" && issue.user.login == "SpencerSedano" && (
+      {status === "authenticated" && session?.user?.name == "SpencerSedano" && (
         <ModalCreate />
       )}
       {/*       {status === "authenticated" && formAddIssue}

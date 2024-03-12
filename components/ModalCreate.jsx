@@ -13,6 +13,8 @@ export default function ModalCreate() {
   const [errors, setErrors] = useState({});
   const [isFormValid, setIsFormValid] = useState(false);
 
+  const [checkButton, setCheckButton] = useState(false);
+
   useEffect(() => {
     validateForm();
   }, [newIssueTitle, newIssueBody]);
@@ -31,12 +33,16 @@ export default function ModalCreate() {
     }
 
     setErrors(errors);
+    // Recording the errors and if it's 0, it would be True
     setIsFormValid(Object.keys(errors).length === 0);
   };
 
   const handleSubmit = () => {
     if (isFormValid) {
       console.log("Form submitted successfully!");
+      setTimeout(() => {
+        setCheckButton(true);
+      }, 2000);
     } else {
       console.log("Form has errors. Please correct them.");
     }
@@ -66,7 +72,7 @@ export default function ModalCreate() {
       <div className="flex justify-items items-center">
         <button
           onClick={handleSubmit}
-          disabled={!isFormValid}
+          disabled={!isFormValid || checkButton}
           className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded "
         >
           Create

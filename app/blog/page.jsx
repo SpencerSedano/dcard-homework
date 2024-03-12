@@ -63,11 +63,12 @@ export default function Blog() {
   }; */
 
   useEffect(() => {
+    // GETting issues from Github API
     const fetchData = async () => {
       const octokit = new Octokit({
         auth: process.env.ONETIME_TOKEN,
       });
-
+      //GETting main issues
       const issuesResponse = await octokit.request(
         "GET /repos/SpencerSedano/dcard-homework/issues",
         {
@@ -76,7 +77,7 @@ export default function Blog() {
           per_page: 100,
         }
       );
-
+      //GETting issues' comments
       const commentsResponse = await octokit.request(
         "GET /repos/{owner}/{repo}/issues/comments",
         {

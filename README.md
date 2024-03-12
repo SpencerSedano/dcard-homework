@@ -32,3 +32,5 @@ Thank you!
 
 https://dcard-homework.vercel.app/
 
+<h2>NOTE</h2>
+3/12/2024 The deployment on Vercel only works with the Github username "SpencerSedano" because somebody has been using it sending too many POST requests to the Github API. I will look into how to fix the many POST requests a logged user can send.
